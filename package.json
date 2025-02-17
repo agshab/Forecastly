@@ -1,0 +1,16 @@
+{
+  "name": "forecastly",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Arshia",
+  "license": "ISC",
+  "description": "forecastly is an app built on express, html, css and js. It fetches data through weather api and displays current and forecast in a user friendly manner",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
