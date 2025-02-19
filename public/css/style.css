@@ -1,0 +1,51 @@
+@import url(reset.css); 
+
+/* Mobile */
+@media only screen and (max-width: 700px) {
+
+    #wrapper {
+        display: grid;
+        grid-template-areas: 
+        'header'
+        'main'
+        'section1'
+        'section2'
+        'footer';
+    }    
+
+}
+
+/* Destop */
+@media only screen and (min-width: 701px) {
+
+    #wrapper {
+        display: grid;
+        grid-template-areas: 
+        'header header'
+        'main main'
+        'section1 section2'
+        'footer footer';
+    }    
+
+}
+
+#wrapper {
+    margin: 0 auto;
+    padding: 10px;
+    width: 90%;
+}
+header {
+    grid-area: header;
+}
+main {
+    grid-area: main;
+}
+#section1 {
+    grid-area: section1;
+}
+#section2{
+    grid-area: section2;
+}
+footer{
+    grid-area: footer;
+}
