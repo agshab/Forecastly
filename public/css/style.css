@@ -1,8 +1,91 @@
-@import url(reset.css); 
+@import url('reset.css');
+
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper {
+    margin: 0 auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 1200px;
+}
+
+header {
+    grid-area: header;
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+h1 {
+    margin: 0;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+main {
+    grid-area: main;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#weather-display {
+    margin-top: 20px;
+}
+
+#weather-display h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+#weather-display p {
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+
+/* Section Styles */
+#section1,
+#section2 {
+    padding: 20px;
+    background-color: #ecf0f1;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#section1 {
+    grid-area: section1;
+    margin-top: 20px;
+}
+
+#section2 {
+    grid-area: section2;
+    margin-top: 20px;
+}
+
+/* Footer */
+footer {
+    grid-area: footer;
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 30px;
+}
 
 /* Mobile */
 @media only screen and (max-width: 700px) {
-
     #wrapper {
         display: grid;
         grid-template-areas: 
@@ -11,13 +94,23 @@
         'section1'
         'section2'
         'footer';
-    }    
+    }
 
+    main {
+        padding: 10px;
+    }
+
+    #weather-display h3 {
+        font-size: 1.2em;
+    }
+
+    #weather-display p {
+        font-size: 1em;
+    }
 }
 
-/* Destop */
+/* Desktop */
 @media only screen and (min-width: 701px) {
-
     #wrapper {
         display: grid;
         grid-template-areas: 
@@ -25,27 +118,19 @@
         'main main'
         'section1 section2'
         'footer footer';
-    }    
+    }
 
+    main {
+        padding: 20px;
+    }
+
+    #weather-display h3 {
+        font-size: 1.5em;
+    }
+
+    #weather-display p {
+        font-size: 1.2em;
+    }
 }
 
-#wrapper {
-    margin: 0 auto;
-    padding: 10px;
-    width: 90%;
-}
-header {
-    grid-area: header;
-}
-main {
-    grid-area: main;
-}
-#section1 {
-    grid-area: section1;
-}
-#section2{
-    grid-area: section2;
-}
-footer{
-    grid-area: footer;
-}
+

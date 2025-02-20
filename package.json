@@ -11,6 +11,8 @@
   "license": "ISC",
   "description": "forecastly is an app built on express, html, css and js. It fetches data through weather api and displays current and forecast in a user friendly manner",
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2"
   }
 }
