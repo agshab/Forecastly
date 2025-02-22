@@ -17,7 +17,7 @@ app.use("", express.static(path.join(__dirname, "./public")));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
-// Create a demo weather object to return
+// Created a demo weather object to return
 let demoCurrentWeather = {
     "weather": [
         {
@@ -57,25 +57,61 @@ let demoCurrentWeather = {
     "cod": 200
 };
 
-// Calls external weather api using lattitude and longitude parameters
+// Calls external weather api using lattitude and longitude parameters -- returns weather Data or error
 async function getWeather(lat, lon) {
     var apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${api_key}`;
 
     try {
         let response = await fetch(apiUrl);
         let data = await response.json();
-        console.log(data); // Check if data is received
+        return data;     // Returns JSON Weather Data
     } catch (error) {
         console.error("Error fetching weather data:", error);
     }
 }
 
-// Define the route
+// Calls external weather api using city -- returns weather Data or error
+async function getWeatherByCity(city){
+    var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${api_key}`;
 
-// Returns Demo Current Weather
-app.get('/api/weather', function(req, res) {
-    res.status(200).json(demoCurrentWeather);
+    try{
+        let response = await fetch(apiUrl);
+        let data = await response.json();
+        return data;
+    }   
+    catch (error){
+        console.error(`Error fetching Weather for ${city}`)
+    }
+}
+
+// Define the routes
+
+// Returns Current Weather Based on Latitude and Longitude values 
+app.get('/api/weather', async function(req, res) {
+    console.log(`lat : ${req.query.lat}    lon: ${req.query.lon}`)
+    try {
+        let Weatherdata = await getWeather(req.query.lat, req.query.lon)
+        res.status(200).json(Weatherdata)
+    }
+    catch {
+        res.status(500).json({error: 'Failed to get weather Data'})
+    }
+
+    //res.status(200).json(demoCurrentWeather);  // Returns Demo Current Weather Data
+        
 });
+
+// Returns Current Weather Based on City 
+app.get('/api/weather_by_city', async function(req, res) {
+    console.log(`city : ${req.query.city} `)
+    try {
+        let WeatherData = await getWeatherByCity(req.query.city)
+        res.status(200).json(WeatherData)
+    }
+    catch {
+        res.status(500).json({error: 'Failed to get weather Data'})
+    }
+})
 
 // Route returns Current Weather from external api call
 

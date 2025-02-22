@@ -4,26 +4,110 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
     <title>Forecastly</title>
   </head>
   <body>
     <div id="wrapper">
       <header>
+        <!-- App Name will display here -->
         <h1>Forecastly</h1>
-        <nav>Navigation</nav>
-      </header>
-      <main>
-        <h2>Weather Information</h2>
-        <div id="weather-display">
-          <p id="weather-description">Loading weather...</p>
-          <p id="temperature">Temperature:</p>
-          <p id="humidity">Humidity:</p>
-          <p id="wind-speed">Wind Speed:</p>
+        <nav></nav>
+        <!-- City name will be displayed here -->
+        <span id="city-name">...</span>
+        <!-- Date and Time will be displayed here -->
+        <p id="current-date-time">...</p>
+
+        <!-- Search Bar Icon -->
+        <div class="search-container">
+          <div id="search-dropdown" class="search-dropdown">
+            <input type="text" id="city-input" placeholder="Enter city" />
+            <button id="btn-get-city-weather">Get Weather</button>
+          </div>
         </div>
+      </header>
+
+      <main>
+        <!-- <div id="weather-summary">
+          <img id="weather-icon" src="" alt="Weather Icon" />
+          <span id="weather-description">Loading weather...</span>
+          <span id="temperature">Loading temperature...</span>
+        </div> -->
       </main>
+
+      <!-- Option 1: Section A: Display weather Overview Layout -->
+      <section id="weather-overview">
+        <section class="section1">
+          <div class="content-bottom">
+            <p></p>
+          </div>
+        </section>
+
+        <div id="weather-heading">
+          <div id="weather-heading-icon">
+            <img id="weather-icon" src="" alt="Weather Icon" />
+          </div>
+          <div id="weather-condition-details">
+            <span id="weather-condition">Loading weather...</span>
+          </div>
+        </div>
+
+        <div id="weather-temperature-container">
+          <div id="weather-temperature">
+            <span id="temperature">Loading temperature...</span>
+          </div>
+        </div>
+
+        <div id="weather-details">
+          <span id="humidity-display">Loading humidity...</span>
+          <span id="wind-speed-display">Loading wind speed...</span>
+        </div>
+
+        <!-- Option 2 Layout/ Part 1: Section A - Display Weather Overview (Weather-Summary) -->
+        <!-- Section A: Display weather Summary Option 2 Layout Part 1-->
+        <!-- <div id="weather-summary">
+          <img id="weather-icon" src="" alt="Weather Icon" />
+          <span id="weather-description">Loading weather...</span>
+          <span id="temperature">Loading temperature...</span>
+        </div> -->
+
+        <!-- Option 2 Layout/ Part 2: Section A - Display Weather Overview (forecast-Details) -->
+        <!-- <div id="forecast-details">
+          <span id="humidity-display">Loading humidity...</span>
+          <span id="wind-speed-display">Loading wind speed...</span>
+          <span id="rain-chance-display">Loading rain chance...</span>
+          <span id="condition-display">Loading condition...</span>
+        </div> -->
+
+        <!-- <button id="temperature-toggle">Toggle °F / °C</button> -->
+      </section>
+
+      <!--Option 1: Section B: Display additional weather details & content -->
+      <section id="additional-weather-details">
+        <h2>Additional Weather Information</h2>
+
+        <!-- Option 1 Layout/ Part 1: Section B Content wrapper with flex styles applied -->
+        <section class="section2">
+          <div class="content-bottom">
+            <!-- Your text or content goes here -->
+            <p></p>
+          </div>
+        </section>
+
+        <!-- Option 1 Layout/ Part 2: Section B Additional information blocks -->
+        <div id="pressure-info">
+          <p>Pressure Information...</p>
+        </div>
+        <div id="visibility-info">
+          <p>Visibility Information...</p>
+        </div>
+        <div id="cloudiness-info">
+          <p>Cloudiness Information...</p>
+        </div>
+      </section>
+
       <footer>
-        <h2>Footer</h2>
+        <h2></h2>
       </footer>
     </div>
   </body>
