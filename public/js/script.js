@@ -36,7 +36,17 @@ const updateWeatherDisplay = (weatherData) => {
   temperatureElement.textContent = `${Math.round(weatherData.main.temp)}°F`;
   humidityElement.innerHTML = `Humidity: ${weatherData.main.humidity}`
   windSpeedElement.innerHTML = `Wind: ${weatherData.wind.speed}`
-  
+  let tempF = Math.round(weatherData.main.temp); // Store temperature in Fahrenheit
+
+  // Toggle temperature between Celsius and Fahrenheit
+  let isCelsius = false; // Default to Fahrenheit
+  document.getElementById("toggle-temp").onclick = function() {
+    isCelsius = !isCelsius;
+    const tempC = Math.round((tempF - 32) * 5 / 9); // Convert to Celsius
+    temperatureElement.innerText = isCelsius ? `${tempC}°C` : `${tempF}°F`;
+  };
+
+
   // Populate additional weather data in Section B
   additionalWeatherDetailsElement.innerHTML = `
     <p>Pressure: ${weatherData.main.pressure} hPa</p>
@@ -64,6 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     let data = await response.json()
     return data;
+
   };
 
   // Function to get date and time layout

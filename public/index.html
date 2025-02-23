@@ -54,7 +54,8 @@
 
         <div id="weather-temperature-container">
           <div id="weather-temperature">
-            <span id="temperature">Loading temperature...</span>
+            <span id="temperature" class="temperature">--</span>
+            <!-- <span id="temperature">Loading temperature...</span> -->
           </div>
         </div>
 
@@ -79,12 +80,34 @@
           <span id="condition-display">Loading condition...</span>
         </div> -->
 
-        <!-- <button id="temperature-toggle">Toggle °F / °C</button> -->
+        <div class="toggle-container">
+          <button id="toggle-temp" class="toggle-btn">°C | °F</button>
+        </div>
       </section>
 
       <!--Option 1: Section B: Display additional weather details & content -->
       <section id="additional-weather-details">
         <h2>Additional Weather Information</h2>
+
+        <!-- Weather Detail Section -->
+        <!-- <div id="weather-details" class="weather-details">
+          <div class="detail-item">
+            <h3>Humidity</h3>
+            <p id="humidity-display">--%</p>
+          </div>
+          <div class="detail-item">
+            <h3>Condition</h3>
+            <p id="condition-display">--</p>
+          </div>
+          <div class="detail-item">
+            <h3>Wind</h3>
+            <p id="wind-speed-display">-- km/h</p>
+          </div>
+          <div class="detail-item">
+            <h3>Chance of Rain</h3>
+            <p id="rain-chance-display">--%</p>
+          </div>
+        </div> -->
 
         <!-- Option 1 Layout/ Part 1: Section B Content wrapper with flex styles applied -->
         <section class="section2">
