@@ -31,6 +31,32 @@ const updateWeatherDisplay = (weatherData) => {
     cloudinessElement.innerHTML = `Cloudiness: ${weatherData.clouds.all}%`;
 };
 
+// Update 5-Day Forecast Display
+const updateForecast = (forecastData) => {
+    forecastContainer.innerHTML = "";
+    const dailyForecasts = {};
+    
+    forecastData.list.forEach((entry) => {
+        const date = entry.dt_txt.split(" ")[0];
+        if (!dailyForecasts[date]) {
+            dailyForecasts[date] = entry;
+        }
+    });
+    
+    Object.values(dailyForecasts).slice(0, 5).forEach((day, indx) => {
+      console.log(indx, day.dt_txt);
+        const forecastElement = document.createElement("div");
+        forecastElement.classList.add("forecast-day");
+        forecastElement.innerHTML = `
+            <p>${new Date(day.dt_txt).toLocaleDateString("en-US", { weekday: "long" })}</p>
+            <img src="https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="${day.weather[0].description}">
+            <p id="day${indx+1}">${Math.round(day.main.temp)}°F</p>
+            <p>${day.weather[0].description}</p>
+        `;
+        forecastContainer.appendChild(forecastElement);
+    });
+};
+
 // Fetch Weather by City
 const fetchWeatherByCity = async (city) => {
     const response = await fetch(`/api/weather_by_city?city=${city}`);
@@ -99,6 +125,20 @@ toggleTempButton.onclick = function() {
   else {
     temp = Math.round((temp - 32) * 5 / 9);
     temperatureElement.innerText = `${temp}°C`
+  }
+
+  // Convert and update forecast temperatures
+  for (let i = 1; i <= 5; i++) {
+      const dayTempElement = document.getElementById(`day${i}`)
+      let temp = parseFloat(dayTempElement.textContent);
+      if (isCelsius) {
+        temp = Math.round(temp * 1.8 +32);
+        dayTempElement.innerText = `${temp}°F`
+      }
+      else {
+        temp = Math.round((temp - 32) * 5 / 9);
+        dayTempElement.innerText = `${temp}°C`
+      }
   }
 
   isCelsius = !isCelsius;
