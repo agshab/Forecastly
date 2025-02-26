@@ -102,6 +102,33 @@ margin-bottom: 30px; /* Adds space below the time */
   flex-direction: column; /* Adjusts to stack content vertically if needed */
 }
 
+/* 5 Day Forecast detail styling */
+#forecast-container {
+  display: flex;
+  justify-content: space-between;
+  /* padding: 20px;
+  position: relative;  */
+}
+
+#five-day-forecast {
+  display: flex;
+  justify-content: space-between;
+  flex: 3;
+  padding-right: 10px;
+}
+
+.forecast-day {  
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+  flex: 1;
+}
+
+.forecast-day img {   /*  weather condition icon  */
+  width: 40px;
+  height: 40px;
+  margin: 5px auto;
+}
+
 /* Footer styling */
 footer {
     /* position: sticky; */
