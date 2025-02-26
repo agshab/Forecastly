@@ -10,6 +10,9 @@ const cors = require("cors");
 app.use(cors());
 
 const api_key = process.env.WEATHER_API_KEY;
+// Define the API URL for the weather forecast
+const apiUrl = "https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={your-api-key}&units=imperal"; 
+
 
 // Serve front-end content in the public directory
 app.use("", express.static(path.join(__dirname, "./public")));
@@ -84,36 +87,85 @@ async function getWeatherByCity(city){
     }
 }
 
+
+// Calls external weather API for 5-day forecast using latitude and longitude -- returns weather Data or error
+async function getFiveDayForecast(lat, lon) {
+    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${api_key}`;
+
+    try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        return data; // Returns 5-day weather forecast data
+    } catch (error) {
+        console.error("Error fetching 5-day forecast data:", error);
+        throw error; // Propagate the error to the calling function
+    }
+}
+
+// Calls external weather API for 5-day forecast using city -- returns weather Data or error
+async function getFiveDayForecastByCity(city) {
+    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${api_key}`;
+
+    try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        return data;  // Returns weather data for the next 5 days (every 3 hours)
+    } catch (error) {
+        console.error(`Error fetching 5-day forecast for ${city}:`, error);
+        throw error;  // Propagate the error to the calling function
+    }
+}
+
+
 // Define the routes
 
-// Returns Current Weather Based on Latitude and Longitude values 
-app.get('/api/weather', async function(req, res) {
-    console.log(`lat : ${req.query.lat}    lon: ${req.query.lon}`)
-    try {
-        let Weatherdata = await getWeather(req.query.lat, req.query.lon)
-        res.status(200).json(Weatherdata)
-    }
-    catch {
-        res.status(500).json({error: 'Failed to get weather Data'})
-    }
 
-    //res.status(200).json(demoCurrentWeather);  // Returns Demo Current Weather Data
-        
+// Returns 5-day forecast based on Latitude and Longitude values
+app.get('/api/forecast', async function (req, res) {
+    const { lat, lon } = req.query;
+    console.log(`lat: ${lat} lon: ${lon}`);
+    
+    try {
+        const forecastData = await getFiveDayForecast(lat, lon);
+        res.status(200).json(forecastData);
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to get weather data' });
+    }
+});
+
+// Returns 5-day forecast based on City
+app.get('/api/forecast_by_city', async function (req, res) {
+    const city = req.query.city;
+    console.log(`city: ${city}`);
+    
+    try {
+        const forecastData = await getFiveDayForecastByCity(city);
+        res.status(200).json(forecastData);
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to get 5-day forecast data' });
+    }
+});
+
+// Returns Current Weather Based on Latitude and Longitude values 
+app.get('/api/weather', async function (req, res) {
+    try {
+        let weatherData = await getWeather(req.query.lat, req.query.lon);
+        res.status(200).json(weatherData);
+    } catch {
+        res.status(500).json({ error: 'Failed to get weather Data' });
+    }
 });
 
 // Returns Current Weather Based on City 
-app.get('/api/weather_by_city', async function(req, res) {
-    console.log(`city : ${req.query.city} `)
+app.get('/api/weather_by_city', async function (req, res) {
     try {
-        let WeatherData = await getWeatherByCity(req.query.city)
-        res.status(200).json(WeatherData)
+        let weatherData = await getWeatherByCity(req.query.city);
+        res.status(200).json(weatherData);
+    } catch {
+        res.status(500).json({ error: 'Failed to get weather Data' });
     }
-    catch {
-        res.status(500).json({error: 'Failed to get weather Data'})
-    }
-})
+});
 
-// Route returns Current Weather from external api call
 
 // Serve the whole app
 app.listen(port, () => {

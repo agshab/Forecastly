@@ -1,35 +1,26 @@
 @import url('reset.css');
-
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    overflow: hidden; /* Allows scrolling */
-    flex-direction: column;
-}
-
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap');
 
 body {
-
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    flex-direction: column;
+    font-family: 'Nunito', sans-serif;
+    color: #fff;
     background: url("https://images.pexels.com/photos/7452437/pexels-photo-7452437.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") no-repeat center center fixed;
     background-size: cover;
     /* background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center center; Centers the image */
-    
+    height:100%;
+    margin: 1px;
+    padding: 3px;
 }
 
-
+input {
+  font-family: 'Nunito', sans-serif;
+}
 
 #wrapper {
     gap: 20px;
-    flex: 1;
     width: 90%;
-    /* color: #fff; */
     height: 100%; 
     margin: 0 auto;
     padding: 20px;
@@ -50,191 +41,84 @@ body {
 
 /* Header & footer styling */
 header, footer {
-
-    color: #fff;
     padding: 10px;
     grid-area: header;
     text-align: center;
-    margin-top: auto; 
+    /* margin-top: auto;  */
     border-radius: 5px;
-
 }
-
-/* Scrollable content area */
-main, .section1, .section2 {
-    overflow-y: auto; /* Enables scrolling within sections */
-    max-height: 100%; /* Ensures sections can take full height without overflowing */
-}
-
-/* Main Container */
-main {
-
-    grid-area: main;
-    padding: 2px;
-    grid-area: main;
-    border-radius: 5px;
-   
-}
-
-/* Sections 1 & 2: Style for both sections */
-.section1, .section2 {
-
-    padding: 20px;
-    border-radius: 5px;
-
-}
-
-/* Center-align content in section2 */
-.section2 {
-
-    display: flex;
-    justify-content: center; /* Horizontally centers the content */
-    align-items: center; /* Vertically centers the content */
-    height: 100%; /* Ensures it takes up full height to center */
-
-}
-
-
-/* Footer styling */
-footer {
-
-    /* position: sticky; */
-    bottom: 0;
-    width: 100%;
-    grid-area: footer;
-    padding: 10px;
-    text-align: center;
-    color: #ffffff;
-    margin-top: auto; 
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.372);
-     */
-} 
 
 #city-name { 
-    font-size: 35px; /* Increase font size for city name */
-    font-weight: bold;
-    color: #ffffff;
-}
-
-#weather-overview {
-
-    color: #ffffff;
-}
-
-/* Option 1: Section A: Display weather Overview Layout */
-#weather-overview #weather-heading {
-    display: flex;
-    align-content: center;
-    flex-wrap: wrap;
-}
-
-#weather-heading #weather-heading-icon {
-   
-}
-
-#weather-heading #weather-condition-details {
-    margin: auto 10px;
-    font-size: 20px; /* Adjust font size for weather condition text */
-    color: #ffffff;
-    text-transform: capitalize; /* Capitalize the first letter of each word */
-
-}
-
-#weather-heading #weather-temperature-container {
-    
-    font-size: 80px; /* font size for temperature */
-    color: #ffffff; /* Customize with your color preference */
-    font-weight: bold;
-
-}
-
-#weather-overview #weather-details {
- 
-
-}
-
-
-/* Option 2 Layout: Section A - Display Weather Overview (Weather-Summary) */
-/* #weather-overview,
-#forecaast details {
-    color: #fff;
-    padding: 20px;
-    margin: 10px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
-}
-
-#weather-overview {
-    color: #fff;
-    grid-area: section1;
-    margin-top: 20px;
-    text-align: center;
-}
-
-#additional-weather-details {
-    color: #fff;
-    grid-area: section2;
-    margin-top: 20px;
-}  */
-
-
-/* Option 2 Layout/ Part 1: Section A - Display Weather Overview (Weather-Summary) */
-/* #weather-overview #weather-summary {
-    color: #fff;
-    display: inline-block;  
-}
-
-#weather-overview #weather-summary #weather-icon {
-    color: #fff;
-    width: 50px;
-    height: 50px;
-}
-
-#weather-overview #weather-summary #weather-description {
-    color: #fff;
-    font-size: 18px;
-    margin-top: 10px;
-}
-
-#weather-overview #weather-summary #temperature {
-    color: #fff;
-    font-size: 32px;
-    margin-top: 10px;
-    font-weight: bold;
-} */
-
-/* Option 2 Layout/ Part 2: Section A - Display Weather Overview (forecast-Details) */
-/* #weather-overview #forecast-details {
-    color: #fff;
-    display: inline-block;  
-} */
-
-
-/*  Section B: Display additional weather details & content */
-#additional-weather-details {
-    display: flex;
-    color: white;
-    justify-content: center; /* Horizontally centers the content */
-    align-items: center; /* Vertically centers the content */
-    height: 100%; /* Ensures it takes up full height to center */
-    width: 100%; /* Ensures it takes full width */
-    flex-direction: column; /* Adjusts to stack content vertically if needed */
+  font-size: 35px; /* Increase font size for city name */
+  font-weight: bold;
 }
 
 #current-date-time {
-    margin-top: 2px; /* Adds space above the search bar */
-    margin-bottom: 30px; /* Adds space below the time */
+margin-top: 2px; /* Adds space above the search bar */
+margin-bottom: 30px; /* Adds space below the time */
 }
 
+#weather-overview {
+  grid-area: section1;
+}
 
+/* Section A: Display weather Overview Layout */
+#weather-overview #weather-heading {
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+#weather-heading #weather-condition-details {
+  margin: auto 10px;
+  font-size: 20px; /* Adjust font size for weather condition text */
+  color: #ffffff;
+  text-transform: capitalize; /* Capitalize the first letter of each word */
+}
+
+#weather-heading #weather-temperature-container {  
+  font-size: 80px; /* font size for temperature */
+  font-weight: bold;
+}
+
+#weather-details-top,
+#weather-details-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Adds space between the divs inside */
+  margin: 1px;
+  padding: 3px;
+  align-items: center; /* Vertically centers the content */
+}
+
+/*  Section B: Display additional weather details & content */
+#additional-weather-details {
+  grid-area: section2;
+  display: flex;
+  justify-content: center; /* Horizontally centers the content */
+  align-items: center; /* Vertically centers the content */
+  height: 100%; /* Ensures it takes up full height to center */
+  width: 100%; /* Ensures it takes full width */
+  flex-direction: column; /* Adjusts to stack content vertically if needed */
+}
+
+/* Footer styling */
+footer {
+    /* position: sticky; */
+    grid-area: footer;
+    padding: 10px;
+    text-align: center;
+} 
+
+/* Toggle Container styling */
 .toggle-container {
     position: absolute;
     top: 10px;
     right: 10px;
 }
 
+/* Toggle btn styling */
 .toggle-btn {
-    
     background-color: #00000044;
     color: white;
     border: none;
@@ -245,18 +129,18 @@ footer {
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.372);
 }
 
+/* Toggle btn hover styling */
 .toggle-btn:hover {
     background-color: #989898; /* "toggle" btn background hover color */
 }
 
-
+/* Seaarch bar container styling */
 .search-container {
-
     margin-top: 20px; /* Adds space above the search bar */
     margin-bottom: 20px; /* Adds space below the time */
 }
 
-/* Seaarch bar city-input */
+/* Seaarch bar: city-input styling */
 #city-input {
     width: 200px; 
     padding: 8px;
@@ -268,11 +152,7 @@ footer {
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.372);
 }
 
-#city-input:focus {
-    background-color: #d5d5d5; /* Highlight border on focus */
-    /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.681); */
-}
-
+/* Seaarch bar: "Get Weather" btn styling */
 #btn-get-city-weather {
     background-color: #000000; /* "Get Weather" btn background */
     color: rgb(255, 255, 255); /* "Get Weather" btn text */
@@ -285,12 +165,14 @@ footer {
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.372);
 }
 
+/* Seaarch bar: "Get Weather" btn hover styling */
 #btn-get-city-weather:hover {
     background-color: #989898; /* "Get Weather" btn background hover color */
 }
 
 /* Mobile */
 @media only screen and (max-width: 768px) {
+
     #wrapper {
         display: grid;
         grid-template-areas: 
@@ -306,26 +188,6 @@ footer {
         text-align: center;
     }
 
-     /* Section 1 - Center content on mobile */
-     .section1 {
-        display: flex;
-        justify-content: center; /* Horizontally centers the content */
-        align-items: center; /* Vertically centers the content */
-        height: 100%; /* Ensures it takes up full height */
-        text-align: center; /* Centers text */
-        /* background-color: #ffffff0b; /* Transparent background for mobile */
-        /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.372); */
-    }
-
-    /* Section 2 - Center content on mobile */
-    .section2 {
-        display: flex;
-        justify-content: center; /* Horizontally centers the content */
-        align-items: center; /* Vertically centers the content */
-        height: 100%;
-        /* background-color: #ffffff0b; /* Transparent background for mobile */
-        /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.372); Same shadow as header, main, footer */
-    } 
 
     #weather-overview {
         display: flex;
@@ -344,11 +206,9 @@ footer {
     }
 
     #weather-overview #weather-condition {
-        color: #fff;
         font-size: 16px;
-        margin-top: 10px; */
+        margin-top: 10px; 
         /* margin: auto 10px; */
-
     }
 
     #weather-overview #temperature {
@@ -364,16 +224,17 @@ footer {
     {
         color: #fff;
         font-size: 16px;
-        /* margin-top: 10px; */
         margin: auto 10px;
 
     }
+
 }
 
 /* Desktop */
 @media only screen and (min-width: 769px){
 
-    #wrapper {
+
+  #wrapper {
         display: grid;
         grid-template-areas: 
         'header header'
@@ -385,40 +246,6 @@ footer {
     main {
         padding: 20px;
     }
-
-    /* Section 1 - Changes for Desktop */
-    .section1 {
-        /* position: relative; For absolute positioning of text */
-        display: grid;
-        height: 100%; /* Ensures it takes up full height */
-        padding: 20px;
-        /* justify-content: flex-start; Align content to the left */
-        /* align-items: flex-end;  Align content to the bottom  */
-        /* text-align: left; Align text to the left */
-        /* background-color: #ffffff0b; /* Transparent background for mobile */
-        /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.372); */ 
-    } */
-
-    /* Section 2 (Additional Weather Details) */
-    #additional-weather-details {
-        /* position: relative; */
-        padding: 20px;
-        grid-column: span 2; /* Span both columns on desktop */
-        height: 100%;
-        flex-direction: column; /* Stack content vertically */
-        /* background-color: #ffffff0b; /* Transparent background
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.372); /* Shadow effect  */       
-        /* display: flex; */
-        /* justify-content: flex-end; Align content to the bottom */
-    }
-
-
-    /* Additional weather information containers */
-    #pressure-info, #visibility-info, #cloudiness-info {
-        padding: 10px;
-        margin-top: 10px;
-    }
-
 
     #weather-overview #weather-icon {
         width: 50px;
@@ -432,10 +259,8 @@ footer {
     }
 
     #weather-overview #temperature {
-        font-size: 50px;
-        color: #fff;    
+        font-size: 50px;  
         margin-top: 10px;
         font-weight: bold;
     }
-
-} 
+}

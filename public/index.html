@@ -11,7 +11,7 @@
     <div id="wrapper">
       <header>
         <!-- App Name will display here -->
-        <h1>Forecastly</h1>
+        <h1></h1>
         <nav></nav>
         <!-- City name will be displayed here -->
         <span id="city-name">...</span>
@@ -34,15 +34,8 @@
           <span id="temperature">Loading temperature...</span>
         </div> -->
       </main>
-
       <!-- Option 1: Section A: Display weather Overview Layout -->
       <section id="weather-overview">
-        <section class="section1">
-          <div class="content-bottom">
-            <p></p>
-          </div>
-        </section>
-
         <div id="weather-heading">
           <div id="weather-heading-icon">
             <img id="weather-icon" src="" alt="Weather Icon" />
@@ -59,25 +52,30 @@
           </div>
         </div>
 
-        <div id="weather-details">
-          <span id="humidity-display">Loading humidity...</span>
-          <span id="wind-speed-display">Loading wind speed...</span>
+        <!-- <div id="weather-details-top">
+          <div id="humidity-display">
+            <p>...</p>
+          </div>
+
+          <div id="wind-speed-display">
+            <p>...</p>
+          </div>
+
+          <div id="rain-chance-display">
+            <p>...</p>
+          </div>
         </div>
 
-        <!-- Option 2 Layout/ Part 1: Section A - Display Weather Overview (Weather-Summary) -->
-        <!-- Section A: Display weather Summary Option 2 Layout Part 1-->
-        <!-- <div id="weather-summary">
-          <img id="weather-icon" src="" alt="Weather Icon" />
-          <span id="weather-description">Loading weather...</span>
-          <span id="temperature">Loading temperature...</span>
-        </div> -->
-
-        <!-- Option 2 Layout/ Part 2: Section A - Display Weather Overview (forecast-Details) -->
-        <!-- <div id="forecast-details">
-          <span id="humidity-display">Loading humidity...</span>
-          <span id="wind-speed-display">Loading wind speed...</span>
-          <span id="rain-chance-display">Loading rain chance...</span>
-          <span id="condition-display">Loading condition...</span>
+        <div id="weather-details-bottom">
+          <div id="pressure-info">
+            <p>...</p>
+          </div>
+          <div id="visibility-info">
+            <p>...</p>
+          </div>
+          <div id="cloudiness-info">
+            <p>...</p>
+          </div>
         </div> -->
 
         <div class="toggle-container">
@@ -85,53 +83,21 @@
         </div>
       </section>
 
-      <!--Option 1: Section B: Display additional weather details & content -->
+      <!--Section B: Display additional weather details & content -->
       <section id="additional-weather-details">
-        <h2>Additional Weather Information</h2>
-
         <!-- Weather Detail Section -->
-        <!-- <div id="weather-details" class="weather-details">
-          <div class="detail-item">
-            <h3>Humidity</h3>
-            <p id="humidity-display">--%</p>
-          </div>
-          <div class="detail-item">
-            <h3>Condition</h3>
-            <p id="condition-display">--</p>
-          </div>
-          <div class="detail-item">
-            <h3>Wind</h3>
-            <p id="wind-speed-display">-- km/h</p>
-          </div>
-          <div class="detail-item">
-            <h3>Chance of Rain</h3>
-            <p id="rain-chance-display">--%</p>
-          </div>
-        </div> -->
 
-        <!-- Option 1 Layout/ Part 1: Section B Content wrapper with flex styles applied -->
-        <section class="section2">
-          <div class="content-bottom">
-            <!-- Your text or content goes here -->
-            <p></p>
+        <div id="forecast-container">
+          <div id="current-temp">
+            <p class="current-temp-value">...</p>
+            <p class="current-temp-desc">...</p>
           </div>
-        </section>
-
-        <!-- Option 1 Layout/ Part 2: Section B Additional information blocks -->
-        <div id="pressure-info">
-          <p>Pressure Information...</p>
-        </div>
-        <div id="visibility-info">
-          <p>Visibility Information...</p>
-        </div>
-        <div id="cloudiness-info">
-          <p>Cloudiness Information...</p>
+          <div id="five-day-forecast">
+            <!-- 5 Day forecast data Populated by Script.js -->
+          </div>
         </div>
       </section>
-
-      <footer>
-        <h2></h2>
-      </footer>
+      <footer></footer>
     </div>
   </body>
 </html>
