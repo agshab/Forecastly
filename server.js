@@ -9,7 +9,7 @@ const port = 1776;
 const cors = require("cors");
 app.use(cors());
 
-const api_key = process.env.WEATHER_API_KEY;
+const api_key = process.env.WEATHER_API_KEY;  // Getting API key from .env
 // Define the API URL for the weather forecast
 const apiUrl = "https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={your-api-key}&units=imperal"; 
 
@@ -20,7 +20,7 @@ app.use("", express.static(path.join(__dirname, "./public")));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
-// Created a demo weather object to return
+// A demo Current weather object to testing & debugging
 let demoCurrentWeather = {
     "weather": [
         {
@@ -87,7 +87,6 @@ async function getWeatherByCity(city){
     }
 }
 
-
 // Calls external weather API for 5-day forecast using latitude and longitude -- returns weather Data or error
 async function getFiveDayForecast(lat, lon) {
     const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${api_key}`;
@@ -116,15 +115,13 @@ async function getFiveDayForecastByCity(city) {
     }
 }
 
-
 // Define the routes
 
 
 // Returns 5-day forecast based on Latitude and Longitude values
 app.get('/api/forecast', async function (req, res) {
     const { lat, lon } = req.query;
-    console.log(`lat: ${lat} lon: ${lon}`);
-    
+
     try {
         const forecastData = await getFiveDayForecast(lat, lon);
         res.status(200).json(forecastData);
@@ -136,7 +133,6 @@ app.get('/api/forecast', async function (req, res) {
 // Returns 5-day forecast based on City
 app.get('/api/forecast_by_city', async function (req, res) {
     const city = req.query.city;
-    console.log(`city: ${city}`);
     
     try {
         const forecastData = await getFiveDayForecastByCity(city);
