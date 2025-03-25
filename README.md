@@ -4,6 +4,19 @@ A simple weather application that allows users to check the weather by using bro
 
 ## Features
 
+- Required Feature Used From Assignment:
+
+1. **Visualize data in a user-friendly way (e.g., graph, chart, etc.)**
+
+2. **Analyze data that is stored in arrays, objects, sets, or maps and display information about it in your app.**
+
+3. **Convert user input between two formats and display the result (e.g., Fahrenheit to Celsius, kilograms to pounds, etc.).**
+
+4. **Retrieve data from a third-party API and use it to display something within your app.**
+
+5. **Create a node.js web server using a modern framework such as Express.js or Fastify. Serve at least one route that your app uses (must serve more than just the index.html file).**
+
+- Features Included in the App:
 - Real-time weather data fetched using an API
 - Responsive design with CSS Grid layout
 - Toggle between Celsius and Fahrenheit
@@ -25,15 +38,12 @@ A simple weather application that allows users to check the weather by using bro
 Follow these steps to set up and open the project on your local machine:
 
 1.  **Install Node.js and NPM**  
-    If you don't have Node.js installed, download and install it from [nodejs.org](https://nodejs.org/). This will also install NPM (Node Package Manager).
+    If you don't have Node.js installed, download and install it from nodejs.org (`http://nodejs.org/`). This will also install NPM (Node Package Manager).
 
 2.  **Clone the Repository**  
     Clone this project to your local machine by running the following command in your terminal (make sure you have Git installed):
 
-    ```sh
-    git clone https://github.com/agshab/Forecastly.git
-
-    ```
+    `git clone https://github.com/agshab/Forecastly.git`
 
 3.  **Navigate to Project Directory**  
     After cloning the repository, open your terminal (or command prompt) and navigate to the project directory using the following command:
@@ -46,23 +56,21 @@ Follow these steps to set up and open the project on your local machine:
     `npm install`
 
 5.  **Create and Configure the .env File**
-    Create a .env file in the root of the project directory and add your API key for weather data. You can get your API key from OpenWeatherMap by
-
-    - [signing up here:](https://home.openweathermap.org/users/sign_up)
+    Create a **.env** file in the root of the project directory and add your API key for weather data. You can get your API key from OpenWeatherMap by [signing up here:](https://home.openweathermap.org/users/sign_up)
 
     Once you have your API key, add it to the .env file like this:
 
-    WEATHER_API_KEY=[Enter_your_api_key_here!]
+    `WEATHER_API_KEY=[Enter_your_api_key_here!]`
 
 6.  **Start the Server**
     Start the development server with the following command:
 
-    `npm start `
+    `npm run dev`
 
 7.  **Open the App in Your Browser**
     After starting the server, open your browser and go to:
 
-    http://localhost:1776/
+    `http://localhost:1776/`
 
     You should now see the weather app running locally on your machine.
 
@@ -97,7 +105,7 @@ Follow these steps to set up and open the project on your local machine:
 
 ### Milestone 5: Code Optimization
 
-- [ ] Optimize performance and clean up code
+- [x] Optimize performance and clean up code
 
 ### Milestone 6: Final Testing and Debugging
 
