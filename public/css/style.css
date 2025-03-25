@@ -72,7 +72,6 @@ margin-bottom: 30px; /* Adds space below the time */
 #weather-heading #weather-condition-details {
   margin: auto 10px;
   font-size: 20px; /* Adjust font size for weather condition text */
-  color: #ffffff;
   text-transform: capitalize; /* Capitalize the first letter of each word */
 }
 
@@ -108,13 +107,6 @@ margin-bottom: 30px; /* Adds space below the time */
   justify-content: space-between;
   /* padding: 20px;
   position: relative;  */
-}
-
-#five-day-forecast {
-  display: flex;
-  justify-content: space-between;
-  flex: 3;
-  padding-right: 10px;
 }
 
 .forecast-day {  
@@ -239,17 +231,14 @@ footer {
     }
 
     #weather-overview #temperature {
-        font-size: 50px;
-        color: #fff;    
+        font-size: 50px; 
         margin-top: 10px;
         font-weight: bold;
         text-align: center;
-
     }
 
     #weather-overview #weather-details
     {
-        color: #fff;
         font-size: 16px;
         margin: auto 10px;
 
@@ -259,7 +248,6 @@ footer {
 
 /* Desktop */
 @media only screen and (min-width: 769px){
-
 
   #wrapper {
         display: grid;
@@ -280,7 +268,6 @@ footer {
     }
 
     #weather-overview #weather-condition {
-        color: #fff;
         font-size: 18px;
         margin-top: 10px;
     }

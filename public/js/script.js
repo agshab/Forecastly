@@ -38,13 +38,12 @@ const updateForecast = (forecastData) => {
     
     forecastData.list.forEach((entry) => {
         const date = entry.dt_txt.split(" ")[0];
-        if (!dailyForecasts[date]) {
+        if (!dailyForecasts[date]) {    // Checking if next day
             dailyForecasts[date] = entry;
         }
     });
     
     Object.values(dailyForecasts).slice(0, 5).forEach((day, indx) => {
-      console.log(indx, day.dt_txt);
         const forecastElement = document.createElement("div");
         forecastElement.classList.add("forecast-day");
         forecastElement.innerHTML = `
@@ -52,7 +51,7 @@ const updateForecast = (forecastData) => {
             <img src="https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="${day.weather[0].description}">
             <p id="day${indx+1}">${Math.round(day.main.temp)}°F</p>
             <p>${day.weather[0].description}</p>
-        `;
+            `;
         forecastContainer.appendChild(forecastElement);
     });
 };
@@ -106,7 +105,7 @@ const getForecast = async (lat, lon) => {
     updateForecast(data);
 };
 
-// Update Time
+// Update & Display Time
 setInterval(() => {
     const date = new Date();
     const currentDateTimeElement = document.getElementById("current-date-time");
@@ -118,16 +117,16 @@ toggleTempButton.onclick = function() {
   
   // Convert and update current temperature
   let temp = parseFloat(temperatureElement.textContent); 
-  if (isCelsius) {
+  if (isCelsius) {  // Convert to Farenhiet
     temp = Math.round(temp * 1.8 +32);
-    temperatureElement.innerText = `${temp}°F`
+    temperatureElement.innerText = `${temp}°F`  // Updating Current Temp
   }
-  else {
+  else {     // Convert to Celsius
     temp = Math.round((temp - 32) * 5 / 9);
-    temperatureElement.innerText = `${temp}°C`
+    temperatureElement.innerText = `${temp}°C`  // Updating Current Temp
   }
 
-  // Convert and update forecast temperatures
+  // Update converted forecast temperatures
   for (let i = 1; i <= 5; i++) {
       const dayTempElement = document.getElementById(`day${i}`)
       let temp = parseFloat(dayTempElement.textContent);
